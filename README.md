@@ -21,5 +21,5 @@
 	`
 	$ cd IA-Enjectioner-1.0.git
 	$ make
-	$ ./IA-Enjectioner-1.0 executable-file-1 executable-file-2
+	$ ./IA-Injectioner-1.0 executable-file-1 executable-file-2
 	`
