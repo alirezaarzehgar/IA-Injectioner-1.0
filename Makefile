@@ -1,4 +1,4 @@
-PRO_NAME = IAInjectioner
+PRO_NAME = IA-Injectioner
 LIBS = -lpthread
 CFILE = *.c
 CC = gcc

@@ -5,7 +5,8 @@
 
 void exeTOimageInP_c(char** argv);
 
-#define BANNER "\n\n\n"\
+#define BANNER "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\033[0;0f"\
+"\n\n\n"\
 "                   ___________________________________\n"\
 "          \033[31m||\033[0m      |         \033[31m|||\033[0m                       \\\n"\
 "          \033[31m||\033[0m      |         \033[31m|||\033[0m                        |__\n"\

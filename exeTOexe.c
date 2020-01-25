@@ -25,70 +25,63 @@ void seyArgError()
 
 int xxd_i(char* argv1, char* argv2)
 {
-        char* str1 = (char*) malloc (sizeof(char*)*1000000);
-        char* str2 = (char*) malloc (sizeof(char*)*1000000);
+        printf("\033[31mstart file copy\n\n");
+	sleep(1);
 
-        int arg1_len;
-        int arg2_len;
+        FILE* header = fopen(".h.h", "w");
+        FILE* f1 = fopen(argv1, "r");
+        FILE* f2 = fopen(argv2, "r");
 
-        FILE* f = fopen(argv1, "r");
+        fprintf(header, "#ifndef H_H_\n#define H_H_\n\nunsigned char pro_one[] =\n{\n");
 
-        for(arg1_len = 0; 1; arg1_len++)
+        int pro_len = 0;
+	printf("\033[31mfrom first  program [\033[35m%d\033[31m] \033[31mcharacter binded\r", pro_len);
+
+        while(1)
         {
-                str1[arg1_len] = fgetc(f);
-                if(feof(f)) break;
+                if(feof(f1)) break;
+                pro_len++;
+                fprintf(header, " %d,", fgetc(f1));
+                if(pro_len % 25 == 0) fputc('\n', header);
+		if(pro_len % 100000 == 0) printf("\033[31mfrom first  program [\033[35m%d\033[31m] \033[31mcharacter binded\r", pro_len);
         }
-        fclose(f);
 
-        f = fopen(argv2, "r");
-
-        for(arg2_len = 0; 1; arg2_len++)
-        {
-                str2[arg2_len] = fgetc(f);
-                if(feof(f)) break;
-        }
-        fclose(f);
+        fprintf(header, " 0\n};\n\nunsigned int pro_one_len = %d;\n", pro_len-1);
 
         //..................
+	printf("\033[93m\t\t\t\t\t\t\t\tOK\n");
 
+        fprintf(header, "\nunsigned char pro_two[] =\n{\n");
 
-        f = fopen(".h.h", "w");
+        pro_len = 0;
+	printf("\033[31mfrom second program [\033[35m%d\033[31m] \033[31mcharacter binded\r", pro_len);
 
-        fprintf(f, "#ifndef H_H_\n#define H_H_\n\nunsigned char pro_one[] =\n{\n");
-
-        for(int i = 0; i < arg1_len; i++)
+        while(1)
         {
-                fprintf(f, "  %d,", str1[i]);
-                if(i % 6 == 0) fprintf(f, "\n");
+		if(feof(f2)) break;
+                pro_len++;
+                fprintf(header, " %d,", fgetc(f2));
+                if(pro_len % 25 == 0) fputc('\n', header);
+                if(pro_len % 100000 == 0) printf("\033[31mfrom second program [\033[35m%d\033[31m] \033[31mcharacter binded\r", pro_len);
         }
+        printf("\033[93m\t\t\t\t\t\t\t\tOK\n\n");
 
-        fputs("  0\n};", f);
+        fprintf(header, " 0\n};\n\nunsigned int pro_two_len = %d;\n\n#endif", pro_len-1);
 
-        fprintf(f, "\n\nunsigned int pro_one_len = %d;\n", arg1_len);
+        fclose(f1);
+        fclose(f2);
+        fclose(header);
 
-        //..................
-
-        fprintf(f, "\nunsigned char pro_two[] =\n{\n");
-
-        for(int i = 0; i < arg2_len; i++)
-        {
-                fprintf(f, "  %d,", str2[i]);
-                if(i % 6 == 0) fprintf(f, "\n");
-        }
-
-        fputs("  0\n};", f);
-
-        fprintf(f, "\n\nunsigned int pro_two_len = %d;\n\n#endif", arg2_len);
-	fclose(f);
-
-        return 1;
+	printf("\033[31mFinish file copy\n");
 }
 
 void programs_run(char* argv)
 {
+	printf("\033[31mstart create %s!\n", argv);
         char command[1000];
         sprintf(command, "gcc -w -o %s .p.c `pkg-config --libs --cflags gtk+-2.0`", argv);
         system(command);
+	printf("\033[31mFitish create %s:)\n", argv);
 }
 
 void exeTOexeInP_c()
@@ -145,7 +138,6 @@ void exeTOexeInP_c()
 
 	);
 	fclose(f);
-
 }
 
 bool istrue(const char* str1, char* str2, int a)
