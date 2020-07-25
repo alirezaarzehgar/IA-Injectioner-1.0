@@ -1,10 +1,10 @@
-				<< in the name of gud >>
+				<< in the name of god >>
 
 ## Document
 	I am alireza arzehgar.
 	my program is a binder tools.
 	IA-Injectioner can embed two file for exmple those can to embed executable file to executable file an executable to image , python code
-	perl code ruby code and envert.
+	perl code ruby code and another files.
 
 	this version write for create programs for Linux and not run in the Windows.
 	but i will write another version for create program for windows linux android and embedding to another media for example pdf mp3 mp4 image and ...  
