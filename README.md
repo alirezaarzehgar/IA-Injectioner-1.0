@@ -1,5 +1,3 @@
-				<< in the name of god >>
-
 ## Document
 	I am alireza arzehgar.
 	my program is a binder tools.
